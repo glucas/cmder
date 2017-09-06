@@ -185,7 +185,7 @@ function get_hg_status()
 end
 
 function get_svn_status()
-    for line in io.popen("svn status -q"):lines() do
+    for line in io.popen("svn status --depth=immediates --ignore-externals -q"):lines() do
        return false
     end
     return true
